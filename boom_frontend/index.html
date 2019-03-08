@@ -10,6 +10,12 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.1/howler.core.min.js"></script>
     <link rel="stylesheet" type="text/css" href="circles.css">
+    <link rel="stylesheet" type="text/css" href="src/Semantic-UI-CSS-master/semantic.min.css">
+      <script
+        src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+      <script src="src/Semantic-UI-CSS-master/semantic.min.js"></script>
         <!-- Define inlined PaperScript associate it with myCanvas -->
     <script type="text/paperscript" canvas="myCanvas">
       // When a key is pressed, set the content of the text item:
@@ -180,7 +186,8 @@
 
 
         var recordButton = document.createElement('button');
-        recordButton.innerText = 'Record Me!';
+        recordButton.innerText = 'REC';
+        recordButton.className = "negative ui button"
         recordButton.id = 'record-button';
         document.querySelector('h1').append(recordButton)
         recordButton.addEventListener('click', function(event) {
@@ -188,7 +195,11 @@
         })
 
         var playButton = document.createElement('button');
-        playButton.innerText = 'Play My Song';
+        playButton.className = "positive ui button active"
+        var i = document.createElement("i")
+        i.className = "play icon"
+        playButton.append(i)
+        // playButton.innerText = 'Play My Song';
         playButton.id = 'play-button';
         document.querySelector('h1').append(playButton)
         playButton.addEventListener('click', function(event) {

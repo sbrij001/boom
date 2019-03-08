@@ -6,6 +6,8 @@
     <!-- Paper JS Library  -->
     <!--Domain specific language. Language specifically made for paper JS  -->
     <script type="text/javascript" src="src/paper-full.js"></script>
+    <script type="text/javascript" src="src/index.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.1/howler.core.min.js"></script>
     <link rel="stylesheet" type="text/css" href="circles.css">
         <!-- Define inlined PaperScript associate it with myCanvas -->
@@ -177,8 +179,25 @@
         }
 
 
-      var circles = [];
+        var recordButton = document.createElement('button');
+        recordButton.innerText = 'Record Me!';
+        recordButton.id = 'record-button';
+        document.querySelector('h1').append(recordButton)
+        recordButton.addEventListener('click', function(event) {
+          event.target.dataset.recording = !(event.target.dataset.recording === 'true');
+        })
 
+        var playButton = document.createElement('button');
+        playButton.innerText = 'Play My Song';
+        playButton.id = 'play-button';
+        document.querySelector('h1').append(playButton)
+        playButton.addEventListener('click', function(event) {
+          playSong(mySongKeys, 200)
+          // mySongKeys = [];
+        })
+
+      var circles = [];
+      var mySongKeys = [];
 
       function onKeyDown(event) {
         if(keyData[event.key]){
@@ -190,6 +209,11 @@
           newCircle.fillColor = keyData[event.key].color;
             keyData[event.key].sound.play();
            circles.push(newCircle);
+        }
+        var button = document.querySelector('#record-button')
+        if(button.dataset.recording === 'true') {
+          mySongKeys.push(event.key)
+          console.log(mySongKeys)
         }
      }
      // Create animated circles
@@ -208,6 +232,25 @@
      // animatedCircle.scale(.91);
    }
 
+  function playSong(mySong, speedInMilliseconds) {
+    var i = 0, howManyTimes = mySongKeys.length;
+    function playOnDelay() {
+        keyData[mySong[i]].sound.play();
+        var maxPoint = new Point(view.size.width, view.size.height);
+        var randomPoint = Point.random();
+        var point = maxPoint * randomPoint;
+        var newCircle = new Path.Circle(point, 500);
+        newCircle.fillColor = keyData[mySong[i]].color;
+         circles.push(newCircle);
+        i++;
+        if( i < howManyTimes ){
+            setTimeout( playOnDelay, speedInMilliseconds);
+        }
+    }
+    playOnDelay();
+  }
+
+
 
 
   </script>
@@ -216,5 +259,7 @@
     <!-- Tells the paperscript where to draw   -->
     <!-- Creates the canvas for the page  -->
     <canvas id="myCanvas" resize></canvas>
+    <h1>Welcome <strong>stranger</strong></h1>
+
   </body>
 </html>

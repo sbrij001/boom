@@ -183,7 +183,8 @@
           color: '#2c3e50'
         }
         }
-
+        var buttonDiv = document.createElement("div")
+        document.querySelector('h1').append(buttonDiv)
 
         var recordButton = document.createElement('button');
         recordButton.innerText = 'REC';
@@ -206,6 +207,8 @@
           playSong(mySongKeys, 200)
           // mySongKeys = [];
         })
+
+        buttonDiv.append(playButton, recordButton)
 
       var circles = [];
       var mySongKeys = [];

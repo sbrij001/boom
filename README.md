@@ -4,9 +4,11 @@
 
 ## Installation 
 
-#Fork and clone the repository
-#CD into  boom_frontend
-#Run index.html 
+Fork and clone the repository
+
+CD into  boom_frontend
+
+Run index.html 
 
 
 ## Libraries 

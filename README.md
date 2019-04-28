@@ -17,6 +17,4 @@ To create animations Paper.js
 Pull requests are welcome.
 
 ## Demonstartion 
-![](http://www.giphy.com/gifs/hX6q1siotJ3ruFgDzM)
-
-<img alt="demonstration" src="boomGif.gif" width="40" height="40" />
+![demonstration](boomGif.gif)

@@ -1,6 +1,6 @@
 # BOOM
 
-#My version of Patatap - animation and sound kit. With pressing letter keys on the keyboard create melodies and shapes, save and replay them. 
+My version of Patatap - animation and sound kit. With pressing letter keys on the keyboard create melodies and shapes, save and replay them. 
 
 ## Installation 
 
@@ -12,11 +12,15 @@ Run index.html
 
 
 ## Libraries 
-#To create sounds Howler.js
-#To create animations Paper.js 
+
+To create sounds Howler.js
+
+To create animations Paper.js 
 
 ## Contributing
-#Pull requests are welcome.
+
+Pull requests are welcome.
 
 ## Demonstration 
+
 <img src="boomGif.gif" alt="demonstration" width="400" height="150" />

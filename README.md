@@ -18,3 +18,5 @@ Pull requests are welcome.
 
 ## Demonstartion 
 ![](http://www.giphy.com/gifs/hX6q1siotJ3ruFgDzM)
+
+<img alt="demonstration" src="http://www.giphy.com/gifs/hX6q1siotJ3ruFgDzM" width="40" height="40" />

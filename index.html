@@ -23,7 +23,6 @@
       var sound = new Howl({
         src: ['sounds/bubbles.mp3']
       });
-
       // Key data
       var keyData = {
         q: {
@@ -185,7 +184,6 @@
         }
         var buttonDiv = document.createElement("div")
         document.querySelector('h1').append(buttonDiv)
-
         var recordButton = document.createElement('button');
         recordButton.innerText = 'REC';
         recordButton.className = "negative ui button"
@@ -194,7 +192,6 @@
         recordButton.addEventListener('click', function(event) {
           event.target.dataset.recording = !(event.target.dataset.recording === 'true');
         })
-
         var playButton = document.createElement('button');
         playButton.className = "positive ui button active"
         var i = document.createElement("i")
@@ -207,12 +204,9 @@
           playSong(mySongKeys, 200)
           // mySongKeys = [];
         })
-
         buttonDiv.append(recordButton, playButton)
-
       var circles = [];
       var mySongKeys = [];
-
       function onKeyDown(event) {
         if(keyData[event.key]){
           // Creates the max points for a circle
@@ -233,7 +227,6 @@
      // Create animated circles
     // var animatedCircle = new Path.Circle(new Point(300, 300), 100);
     // animatedCircle.fillColor = "red";
-
     function onFrame(event) {
 	// Each frame, change the fill color of the path slightly by
 	// adding 1 to its hue:
@@ -245,7 +238,6 @@
 	   //animatedCircle.fillColor.hue += 1;
      // animatedCircle.scale(.91);
    }
-
   function playSong(mySong, speedInMilliseconds) {
     var i = 0, howManyTimes = mySongKeys.length;
     function playOnDelay() {
@@ -263,10 +255,6 @@
     }
     playOnDelay();
   }
-
-
-
-
   </script>
   </head>
   <body>
@@ -274,6 +262,5 @@
     <!-- Creates the canvas for the page  -->
     <canvas id="myCanvas" resize></canvas>
     <h1>Welcome <strong>stranger</strong></h1>
-
   </body>
 </html>

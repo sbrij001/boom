@@ -1,0 +1,22 @@
+{
+  "name": "boom_frontend",
+  "version": "1.0.0",
+  "description": "With pressing letter keys on the keyboard create melodies and shapes, save and replay them.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sbrij001/boom.git"
+  },
+  "keywords": [
+    "boom"
+  ],
+  "author": "shivani brijmohan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sbrij001/boom/issues"
+  },
+  "homepage": "https://github.com/sbrij001/boom#readme"
+}

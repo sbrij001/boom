@@ -173,34 +173,36 @@ var keyData = {
   }
 }
 // Container that will hold media buttons
-var container = document.createElement("div")
-document.querySelector('h1').append(container)
+var container = document.createElement("div");
+document.querySelector('h1').append(container);
 
 // Record button
 var recordButton = document.createElement('button');
 recordButton.innerText = 'REC';
-recordButton.className = "negative ui button"
+recordButton.className = "negative ui button";
 recordButton.id = 'record-button';
-document.querySelector('h1').append(recordButton)
+document.querySelector('h1').append(recordButton);
 recordButton.addEventListener('click', function(event) {
   event.target.dataset.recording = !(event.target.dataset.recording === 'true');
-})
+});
+
+
 
 // Play button
 var playButton = document.createElement('button');
-playButton.className = "positive ui button active"
+playButton.className = "positive ui button active";
 // Play button triangle icon
-var i = document.createElement("i")
-i.className = "play icon"
-playButton.append(i)
+var i = document.createElement("i");
+i.className = "play icon";
+playButton.append(i);
 // playButton.innerText = 'Play My Song';
 playButton.id = 'play-button';
-document.querySelector('h1').append(playButton)
+document.querySelector('h1').append(playButton);
 // will play the song at a certain speed
 playButton.addEventListener('click', function(event) {
   playSong(mySongKeys, 300)
-})
-container.append(recordButton, playButton)
+});
+container.append(recordButton, playButton);
 
 /*
   an array that will hold all of the keys circles
@@ -222,11 +224,11 @@ function onKeyDown(event) {
     keyData[event.key].sound.play();
     circles.push(newCircle);
   }
-  var button = document.querySelector('#record-button')
+  var button = document.querySelector('#record-button');
   // will push all the letters of the buttons being pushed to the mySongkeys array
   if(button.dataset.recording === 'true') {
-    mySongKeys.push(event.key)
-    console.log(mySongKeys)
+    mySongKeys.push(event.key);
+    console.log(mySongKeys);
   }
 }
 

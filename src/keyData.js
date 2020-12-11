@@ -172,6 +172,7 @@ var keyData = {
     color: '#2c3e50'
   }
 }
+
 // Container that will hold media buttons
 var container = document.createElement("div");
 document.querySelector('h1').append(container);
@@ -211,11 +212,12 @@ container.append(recordButton, playButton);
 var circles = [], mySongKeys = [];
 
 /*
+built in function from Paper.js
 this function will hold the logic for when a key is being pressed and if the user is trying to record a jingle
 */
 function onKeyDown(event) {
   if(keyData[event.key]){
-    // Creates the max points for a circle
+    // Creates the max points we can add a circle to using the view size to generate points
     var maxPoint = new Point(view.size.width, view.size.height);
     var randomPoint = Point.random();
     var point = maxPoint * randomPoint;
@@ -233,15 +235,13 @@ function onKeyDown(event) {
 }
 
 /*
- This function will create the logic for the circles fill colors
- Each frame, change the fill color of the path slightly by
- adding 1 to its hue:
- create an array of circles and loop thru them
+ This function runs on every frame
+ it will loop through the circles, create the circles animations, and will change the fill color of the path slightly by adding 1 to its hue:
 */
-function onFrame(event) {
+function onFrame() {
   for (var i = 0; i < circles.length; i++) {
     circles[i].fillColor.hue += 1;
-    circles[i].scale(.91);
+    circles[i].scale(.9);
   }
 }
 

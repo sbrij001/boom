@@ -29,7 +29,6 @@
  * created by Marijn Haverbeke and released under an MIT license.
  *
  */
-
 var paper = function(self, undefined) {
 
 self = self || require('./node/self.js');

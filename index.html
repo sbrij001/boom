@@ -2,265 +2,28 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Circles</title>
-    <!-- Paper JS Library  -->
-    <!--Domain specific language. Language specifically made for paper JS  -->
-    <script type="text/javascript" src="src/paper-full.js"></script>
-    <script type="text/javascript" src="src/index.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.1/howler.core.min.js"></script>
+    <title>Boom</title>
+    <link rel="shortcut icon" type="image/jpg" href="./src/images/boom_favicon.png" />
     <link rel="stylesheet" type="text/css" href="circles.css">
     <link rel="stylesheet" type="text/css" href="src/Semantic-UI-CSS-master/semantic.min.css">
-      <script
-        src="https://code.jquery.com/jquery-3.1.1.min.js"
-        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-        crossorigin="anonymous"></script>
-      <script src="src/Semantic-UI-CSS-master/semantic.min.js"></script>
-        <!-- Define inlined PaperScript associate it with myCanvas -->
-    <script type="text/paperscript" canvas="myCanvas">
-      // When a key is pressed, set the content of the text item:
-      // Creates the sound for the circle
-      var sound = new Howl({
-        src: ['sounds/bubbles.mp3']
-      });
-      // Key data
-      var keyData = {
-        q: {
-          sound: new Howl({
-          src: ['sounds/bubbles.mp3']
-        }),
-          color: '#1abc9c'
-        },
-        w: {
-          sound: new Howl({
-          src: ['sounds/clay.mp3']
-        }),
-          color: '#2ecc71'
-        },
-        e: {
-          sound: new Howl({
-          src: ['sounds/confetti.mp3']
-        }),
-          color: '#3498db'
-        },
-        r: {
-          sound: new Howl({
-          src: ['sounds/corona.mp3']
-        }),
-          color: '#9b59b6'
-        },
-        t: {
-          sound: new Howl({
-          src: ['sounds/dotted-spiral.mp3']
-        }),
-          color: '#34495e'
-        },
-        y: {
-          sound: new Howl({
-          src: ['sounds/flash-1.mp3']
-        }),
-          color: '#16a085'
-        },
-        u: {
-          sound: new Howl({
-          src: ['sounds/flash-2.mp3']
-        }),
-          color: '#27ae60'
-        },
-        i: {
-          sound: new Howl({
-          src: ['sounds/flash-3.mp3']
-        }),
-          color: '#2980b9'
-        },
-        o: {
-          sound: new Howl({
-            src: ['sounds/glimmer.mp3']
-        }),
-          color: '#8e44ad'
-        },
-        p: {
-          sound: new Howl({
-          src: ['sounds/moon.mp3']
-        }),
-          color: '#2c3e50'
-        },
-        a: {
-          sound: new Howl({
-          src: ['sounds/pinwheel.mp3']
-        }),
-          color: '#f1c40f'
-        },
-        s: {
-          sound: new Howl({
-          src: ['sounds/piston-1.mp3']
-        }),
-          color: '#e67e22'
-        },
-        d: {
-          sound: new Howl({
-          src: ['sounds/piston-2.mp3']
-        }),
-          color: '#e74c3c'
-        },
-        f: {
-          sound: new Howl({
-          src: ['sounds/prism-1.mp3']
-        }),
-          color: '#95a5a6'
-        },
-        g: {
-          sound: new Howl({
-          src: ['sounds/prism-2.mp3']
-        }),
-          color: '#f39c12'
-        },
-        h: {
-          sound: new Howl({
-          src: ['sounds/prism-3.mp3']
-        }),
-          color: '#d35400'
-        },
-        j: {
-          sound: new Howl({
-          src: ['sounds/splits.mp3']
-        }),
-          color: '#1abc9c'
-        },
-        k: {
-          sound: new Howl({
-          src: ['sounds/squiggle.mp3']
-        }),
-          color: '#2ecc71'
-        },
-        l: {
-          sound: new Howl({
-          src: ['sounds/strike.mp3']
-        }),
-          color: '#3498db'
-        },
-        z: {
-          sound: new Howl({
-          src: ['sounds/suspension.mp3']
-        }),
-          color: '#9b59b6'
-        },
-        x: {
-          sound: new Howl({
-          src: ['sounds/timer.mp3']
-        }),
-          color: '#34495e'
-        },
-        c: {
-          sound: new Howl({
-          src: ['sounds/ufo.mp3']
-        }),
-          color: '#16a085'
-        },
-        v: {
-          sound: new Howl({
-          src: ['sounds/veil.mp3']
-        }),
-          color: '#27ae60'
-        },
-        b: {
-          sound: new Howl({
-          src: ['sounds/wipe.mp3']
-        }),
-          color: '#2980b9'
-        },
-        n: {
-          sound: new Howl({
-          src: ['sounds/zig-zag.mp3']
-        }),
-          color: '#8e44ad'
-        },
-        m: {
-          sound: new Howl({
-          src: ['sounds/moon.mp3']
-        }),
-          color: '#2c3e50'
-        }
-        }
-        var buttonDiv = document.createElement("div")
-        document.querySelector('h1').append(buttonDiv)
-        var recordButton = document.createElement('button');
-        recordButton.innerText = 'REC';
-        recordButton.className = "negative ui button"
-        recordButton.id = 'record-button';
-        document.querySelector('h1').append(recordButton)
-        recordButton.addEventListener('click', function(event) {
-          event.target.dataset.recording = !(event.target.dataset.recording === 'true');
-        })
-        var playButton = document.createElement('button');
-        playButton.className = "positive ui button active"
-        var i = document.createElement("i")
-        i.className = "play icon"
-        playButton.append(i)
-        // playButton.innerText = 'Play My Song';
-        playButton.id = 'play-button';
-        document.querySelector('h1').append(playButton)
-        playButton.addEventListener('click', function(event) {
-          playSong(mySongKeys, 200)
-          // mySongKeys = [];
-        })
-        buttonDiv.append(recordButton, playButton)
-      var circles = [];
-      var mySongKeys = [];
-      function onKeyDown(event) {
-        if(keyData[event.key]){
-          // Creates the max points for a circle
-          var maxPoint = new Point(view.size.width, view.size.height);
-          var randomPoint = Point.random();
-          var point = maxPoint * randomPoint;
-          var newCircle = new Path.Circle(point, 500);
-          newCircle.fillColor = keyData[event.key].color;
-            keyData[event.key].sound.play();
-           circles.push(newCircle);
-        }
-        var button = document.querySelector('#record-button')
-        if(button.dataset.recording === 'true') {
-          mySongKeys.push(event.key)
-          console.log(mySongKeys)
-        }
-     }
-     // Create animated circles
-    // var animatedCircle = new Path.Circle(new Point(300, 300), 100);
-    // animatedCircle.fillColor = "red";
-    function onFrame(event) {
-	// Each frame, change the fill color of the path slightly by
-	// adding 1 to its hue:
-  //create an array of circles and loop thru them
-    for (var i = 0; i < circles.length; i++) {
-      circles[i].fillColor.hue += 1;
-      circles[i].scale(.91);
-    }
-	   //animatedCircle.fillColor.hue += 1;
-     // animatedCircle.scale(.91);
-   }
-  function playSong(mySong, speedInMilliseconds) {
-    var i = 0, howManyTimes = mySongKeys.length;
-    function playOnDelay() {
-        keyData[mySong[i]].sound.play();
-        var maxPoint = new Point(view.size.width, view.size.height);
-        var randomPoint = Point.random();
-        var point = maxPoint * randomPoint;
-        var newCircle = new Path.Circle(point, 500);
-        newCircle.fillColor = keyData[mySong[i]].color;
-         circles.push(newCircle);
-        i++;
-        if( i < howManyTimes ){
-            setTimeout( playOnDelay, speedInMilliseconds);
-        }
-    }
-    playOnDelay();
-  }
-  </script>
+    <!-- KeyData.js   -->
+    <script type="text/paperscript" canvas="myCanvas" src="./src/keyData.js"></script>
   </head>
+
   <body>
-    <!-- Tells the paperscript where to draw   -->
+    <!-- Tells the PaperScript where to draw   -->
     <!-- Creates the canvas for the page  -->
     <canvas id="myCanvas" resize></canvas>
     <h1>Welcome <strong>stranger</strong></h1>
+
+    <!-- JS Libraries -->
+    <script type="text/javascript" src="src/paper-full.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.1/howler.core.min.js"></script>
+    <!-- Jquery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <!-- Semantic UI -->
+    <script src="src/Semantic-UI-CSS-master/semantic.min.js"></script>
   </body>
 </html>

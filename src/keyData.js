@@ -1,6 +1,6 @@
 /*
 This file will contain all the key data for the project and its functionality
-The key data includes a specific letter and its corresponding soound and circle color
+The key data includes a specific letter and its corresponding sound and circle color
 There will be 2 buttons that will allow the user to play and record the audio
 */
 var sound = new Howl({
@@ -183,6 +183,7 @@ recordButton.innerText = 'REC';
 recordButton.className = "negative ui button";
 recordButton.id = 'record-button';
 document.querySelector('h1').append(recordButton);
+// This event listener trigger the dom to start recording the keys being pressed
 recordButton.addEventListener('click', function(event) {
   event.target.dataset.recording = !(event.target.dataset.recording === 'true');
 });

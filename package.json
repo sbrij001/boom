@@ -18,5 +18,11 @@
   "bugs": {
     "url": "https://github.com/sbrij001/boom/issues"
   },
-  "homepage": "https://github.com/sbrij001/boom#readme"
+  "homepage": "https://github.com/sbrij001/boom#readme",
+  "dependencies": {
+    "@sanity/client": "^2.1.0",
+    "es6-promise": "^4.2.8",
+    "howler": "^2.2.1",
+    "paper": "^0.12.11"
+  }
 }
